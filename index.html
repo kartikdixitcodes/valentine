@@ -1,85 +1,83 @@
-*{margin:0;padding:0;box-sizing:border-box;}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Kavya ❤️</title>
 
-body{
-  font-family:'Playfair Display',serif;
-  background:linear-gradient(135deg,#ffb6c1 0%,#c2185b 50%,#8b0000 100%);
-  min-height:100vh;
-  overflow-x:hidden;
-  color:white;
-}
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
 
-.screen{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:40px;
-}
+<audio id="bgMusic" src="song.mp3"></audio>
 
-.hidden{display:none;}
+<!-- SLIDE 1 -->
+<section class="screen active" id="slide1">
+  <img src="images/cute.png" class="teddy">
+  <h1>For Kavya ❤️</h1>
+  <button class="btn" onclick="startExperience()">Continue</button>
+</section>
 
-.gallery{
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:40px;
-  margin-bottom:40px;
-  position:relative;
-  z-index:2;
-}
+<!-- SLIDE 2 -->
+<section class="screen" id="slide2">
+  <h1 class="glow-text">Loading something magical...</h1>
+  <div id="loadingWrapper">
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+  <button class="btn hidden" id="enterBtn" onclick="goToSlide3()">Enter ❤️</button>
+</section>
 
-.her-photo,
-.our-photo{
-  height:340px;
-  border-radius:20px;
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 1.2s ease;
-}
+<!-- SLIDE 3 -->
+<section class="screen" id="slide3">
+  <h1>Together since 22 May 2025 ❤️</h1>
+  <div id="countdown"></div>
+  <button class="btn hidden" id="worldBtn" onclick="goToSlide4()">Enter Our World ❤️</button>
+</section>
 
-.center-landscape{height:380px;}
-.our-center{height:420px;}
+<!-- SLIDE 4 -->
+<section class="screen" id="slide4">
+  <h1>Pick a flower 🌸</h1>
+  <div class="flower-container">
+    <div class="flower" onclick="showFlower(0)">🌹</div>
+    <div class="flower" onclick="showFlower(1)">🌺</div>
+    <div class="flower" onclick="showFlower(2)">🌸</div>
+  </div>
+  <div id="flowerMessage" class="flower-text"></div>
+  <button class="btn" onclick="goToSlide5()">Continue</button>
+</section>
 
-.show-photo{
-  opacity:1;
-  transform:translateY(0);
-}
+<!-- SLIDE 5 -->
+<section class="screen" id="slide5">
+  <h1>Slide to unlock my heart ❤️</h1>
+  <div class="slider">
+    <div class="slider-track"></div>
+    <div class="slider-fill" id="sliderFill"></div>
+    <div class="slider-handle" id="sliderHandle">❤️</div>
+  </div>
+</section>
 
-.btn{
-  padding:16px 50px;
-  border-radius:50px;
-  border:none;
-  font-size:20px;
-  background:linear-gradient(45deg,#ff4e8d,#ff0066);
-  color:white;
-  cursor:pointer;
-  margin:20px;
-}
+<!-- SLIDE 6 -->
+<section class="screen" id="slide6">
+  <div id="herGallery" class="gallery"></div>
 
-#noBtn{
-  position:fixed;
-  z-index:9999;
-}
+  <h1 id="proposalText" class="hidden">
+    Will you be my Valentine and my forever? ❤️
+  </h1>
 
-.random-line{
-  position:fixed;
-  font-size:22px;
-  font-weight:bold;
-  opacity:0;
-  transition:opacity 1.5s ease;
-  z-index:1;
-}
+  <div id="proposalButtons" class="hidden">
+    <button class="btn" onclick="acceptLove()">Yes ❤️</button>
+    <button class="btn" id="noBtn">No</button>
+  </div>
+</section>
 
-.love-glow{
-  font-family:'Allura',cursive;
-  font-size:60px;
-  margin-top:40px;
-  text-shadow:0 0 10px #fff,
-               0 0 20px #ff4e8d,
-               0 0 30px #ff0066;
-  opacity:0;
-  transition:opacity 2s ease;
-  text-align:center;
-}
+<!-- SLIDE 7 -->
+<section class="screen" id="slide7">
+  <div id="ourGallery" class="gallery"></div>
+  <div id="finalLove"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
