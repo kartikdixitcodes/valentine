@@ -99,7 +99,7 @@ function startHerGallery(){
 
   let i=0;
 
-  function next(){
+  function showNext(){
 
     if(i>=imgs.length){
       document.getElementById("proposalText").classList.remove("hidden");
@@ -112,29 +112,40 @@ function startHerGallery(){
     img.src="images/"+imgs[i];
     gallery.appendChild(img);
 
-    setTimeout(()=>img.classList.add("show"),200);
+    setTimeout(()=>{
+      img.classList.add("show");
+    },200);
 
     i++;
-    setTimeout(next,1400);
+    setTimeout(showNext,1500);
   }
 
-  next();
+  showNext();
 }
 
-/* NO Button */
+/* NO button improved */
 function activateNo(){
+
   const no=document.getElementById("noBtn");
+
   no.style.position="fixed";
-  no.style.zIndex="9999";
 
   document.addEventListener("mousemove",(e)=>{
+
     const rect=no.getBoundingClientRect();
     const dist=Math.hypot(e.clientX-rect.left,e.clientY-rect.top);
+
     if(dist<120){
-      no.style.left=Math.random()*(window.innerWidth-120)+"px";
-      no.style.top=Math.random()*(window.innerHeight-80)+"px";
+
+      const maxX=window.innerWidth-150;
+      const maxY=window.innerHeight-100;
+
+      no.style.left=Math.random()*maxX+"px";
+      no.style.top=Math.random()*maxY+"px";
     }
+
   });
+
 }
 
 /* YES */
@@ -206,4 +217,5 @@ function fadeLove(){
   container.appendChild(love);
   setTimeout(()=>love.style.opacity=1,300);
 }
+
 
