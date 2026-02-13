@@ -1,0 +1,218 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Playfair Display',serif;
+  background:linear-gradient(135deg,#ffb6c1 0%,#c2185b 50%,#8b0000 100%);
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ================= SCREEN ================= */
+.screen{
+  min-height:100vh;
+  width:100%;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px;
+  position:relative;
+}
+
+.screen.active{
+  display:flex;
+}
+
+/* ================= HEADINGS ================= */
+h1,h2{
+  font-family:'Great Vibes',cursive;
+  font-size:70px;
+  margin-bottom:30px;
+}
+
+/* ================= BUTTONS ================= */
+.btn{
+  padding:16px 50px;
+  border:none;
+  border-radius:40px;
+  font-family:'Quicksand',sans-serif;
+  font-size:20px;
+  font-weight:600;
+  background:linear-gradient(45deg,#ff4e8d,#ff0066);
+  color:white;
+  cursor:pointer;
+  margin-top:25px;
+  transition:all 0.3s ease;
+}
+
+.btn:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* ================= LOADING ================= */
+.progress-container{
+  width:350px;
+  height:12px;
+  background:rgba(255,255,255,0.3);
+  border-radius:20px;
+  margin:30px 0;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:white;
+  border-radius:20px;
+}
+
+#enterBtn{
+  opacity:0;
+  transition:opacity 0.8s ease;
+}
+
+/* ===== FLOWER SECTION FIXED ===== */
+
+#slide4{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.flower-container{
+  display:flex;
+  flex-direction:row !important;
+  justify-content:center;
+  align-items:center;
+  gap:90px;
+  width:100%;
+  max-width:900px;
+}
+
+.flower{
+  font-size:70px;
+  cursor:pointer;
+  transition:transform 0.3s ease;
+}
+
+.flower:hover{
+  transform:translateY(-12px) scale(1.2);
+}
+
+.flower-text{
+  font-family:'Quicksand',sans-serif;
+  font-size:24px;
+  font-weight:700;
+  margin-top:20px;
+  min-height:30px;
+}
+
+/* ===== SLIDER FIXED ===== */
+
+.slider{
+  position:relative;
+  width:420px;
+  height:60px;
+  margin-top:40px;
+}
+
+.slider-track{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.3);
+  border-radius:50px;
+}
+
+.slider-fill{
+  position:absolute;
+  height:100%;
+  width:0%;
+  background:#ff4081;
+  border-radius:50px;
+}
+
+.slider-handle{
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:#ff0066;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  left:0;
+  top:0;
+  z-index:3;
+}
+
+/* ================= GALLERY ================= */
+.gallery{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:40px;
+  margin-bottom:60px;
+  position:relative;
+  z-index:2;
+}
+
+.her-photo,
+.our-photo{
+  height:340px;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:1s ease;
+}
+
+.center-landscape{
+  height:380px;
+}
+
+.our-center{
+  height:420px;
+}
+
+.show-photo{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= RANDOM TEXT FIX ================= */
+.random-line{
+  position:absolute;
+  font-family:'Quicksand',sans-serif;
+  font-weight:700;
+  font-size:22px;
+  opacity:0;
+  transition:1.2s ease;
+  z-index:1;
+}
+
+/* ================= FINAL LOVE GLOW FIX ================= */
+#finalLove{
+  position:relative;
+  z-index:10;
+  margin-top:40px;
+}
+
+.love-glow{
+  font-family:'Allura',cursive;
+  font-size:64px;
+  text-align:center;
+  opacity:0;
+  text-shadow:
+    0 0 15px #fff,
+    0 0 35px #ff4e8d,
+    0 0 60px #ff0066;
+  transition:opacity 2s ease;
+}
+
