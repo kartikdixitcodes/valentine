@@ -110,16 +110,16 @@ function startHerGallery(){
 
   function showNext(){
 
-    if(i >= imgs.length){
+    if (i >= imgs.length) {
 
-  // Show the text first
+  // show the text first
   proposalText.classList.remove("hidden");
 
-  // Wait for text animation to finish before buttons
-  setTimeout(()=>{
-    proposalButtons.classList.remove("hidden");
+  // wait for text animation
+  setTimeout(() => {
+    proposalButtons.classList.add("show-buttons");
     activateNo();
-  }, 900); // small smooth delay
+  }, 1000);
 
   return;
 }
@@ -236,6 +236,7 @@ function fadeLove(){
   container.appendChild(love);
   setTimeout(()=>love.style.opacity=1,300);
 }
+
 
 
 
