@@ -1,14 +1,21 @@
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   font-family:'Playfair Display',serif;
-  background:linear-gradient(135deg,#ffb6c1,#c2185b,#8b0000);
+  background:linear-gradient(135deg,#ffb6c1 0%,#c2185b 50%,#8b0000 100%);
   color:white;
   min-height:100vh;
   overflow-x:hidden;
 }
 
-/* Slides */
+/* ===================== */
+/* GENERAL SLIDES */
+/* ===================== */
+
 .screen{
   min-height:100vh;
   width:100%;
@@ -21,29 +28,48 @@ body{
   opacity:0;
   transition:opacity .8s ease;
 }
-.screen.active{display:flex;opacity:1;}
+
+.screen.active{
+  display:flex;
+  opacity:1;
+}
 
 .big-title{
   font-family:'Cinzel',serif;
   font-weight:700;
+  font-size:40px;
 }
 
-/* Buttons */
+/* ===================== */
+/* BUTTONS */
+/* ===================== */
+
 .btn{
-  padding:15px 50px;
+  padding:16px 50px;
   border-radius:50px;
   border:none;
   background:linear-gradient(45deg,#ff4e8d,#ff0066);
   color:white;
   font-size:20px;
   cursor:pointer;
-  transition:.4s;
+  transition:all .4s ease;
   margin:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
 }
-.btn:hover{transform:translateY(-6px);}
-.hidden{display:none;}
 
-/* Loading */
+.btn:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 35px rgba(0,0,0,.4);
+}
+
+.hidden{
+  display:none;
+}
+
+/* ===================== */
+/* LOADING BAR */
+/* ===================== */
+
 .progress-container{
   width:350px;
   height:12px;
@@ -51,6 +77,7 @@ body{
   border-radius:20px;
   margin:30px 0;
 }
+
 .progress-bar{
   height:100%;
   width:0%;
@@ -58,7 +85,10 @@ body{
   border-radius:20px;
 }
 
-/* Countdown */
+/* ===================== */
+/* COUNTDOWN */
+/* ===================== */
+
 .fade-item{
   opacity:0;
   transition:opacity 2s ease;
@@ -66,36 +96,131 @@ body{
   margin:20px;
 }
 
-/* Flower */
-.flower-container{display:flex;gap:60px;margin:30px;}
-.flower{font-size:70px;cursor:pointer;transition:.3s;}
-.flower:hover{transform:translateY(-15px);}
-.flower-text{font-size:22px;margin-top:20px;}
+/* ===================== */
+/* FLOWER SECTION */
+/* ===================== */
 
-/* Slider */
+.flower-container{
+  display:flex;
+  gap:60px;
+  margin:30px 0;
+}
+
+.flower{
+  font-size:70px;
+  cursor:pointer;
+  transition:all .4s ease;
+}
+
+.flower:hover{
+  transform:translateY(-15px) scale(1.1);
+}
+
+.flower-text{
+  font-size:22px;
+  margin-top:15px;
+}
+
+/* ===================== */
+/* SLIDER */
+/* ===================== */
+
 .slider{
   position:relative;
   width:400px;
   height:70px;
-  margin:40px;
+  margin:40px 0;
 }
+
 .slider-track{
-  position:absolute;width:100%;height:100%;
+  position:absolute;
+  width:100%;
+  height:100%;
   background:rgba(255,255,255,.3);
   border-radius:50px;
 }
+
 .slider-fill{
-  position:absolute;height:100%;width:0%;
-  background:#ff4081;border-radius:50px;
-}
-.slider-handle{
-  position:absolute;width:90px;height:90px;
-  background:#ff0066;border-radius:50%;
-  display:flex;justify-content:center;align-items:center;
-  font-size:30px;cursor:pointer;top:-10px;
+  position:absolute;
+  height:100%;
+  width:0%;
+  background:#ff4081;
+  border-radius:50px;
 }
 
-/* Gallery */
+.slider-handle{
+  position:absolute;
+  width:90px;
+  height:90px;
+  background:#ff0066;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:32px;
+  cursor:pointer;
+  top:-10px;
+}
+
+/* ===================== */
+/* SLIDE 6 FIXED */
+/* ===================== */
+
+.proposal-wrapper{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.proposal-gallery{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:40px;
+  width:100%;
+  max-width:1000px;
+  overflow:hidden;
+}
+
+.proposal-gallery img{
+  height:340px;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1.5s ease;
+}
+
+.proposal-gallery img.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.proposal-title{
+  margin-top:40px;
+  text-align:center;
+}
+
+.proposal-buttons{
+  margin-top:30px;
+  display:flex;
+  gap:30px;
+  justify-content:center;
+}
+
+/* ===================== */
+/* FINAL SLIDE */
+/* ===================== */
+
+.final-wrapper{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+}
+
 .gallery{
   display:flex;
   justify-content:center;
@@ -103,6 +228,7 @@ body{
   gap:40px;
   flex-wrap:nowrap;
 }
+
 .gallery img{
   height:340px;
   border-radius:20px;
@@ -110,18 +236,14 @@ body{
   transform:translateY(40px);
   transition:all 1.5s ease;
 }
+
 .gallery img.show{
   opacity:1;
   transform:translateY(0);
 }
-.our-center{height:420px !important;}
 
-/* Final Slide */
-.final-wrapper{
-  position:relative;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
+.our-center{
+  height:420px !important;
 }
 
 #textLayer{
@@ -139,6 +261,7 @@ body{
   transition:all 1.5s ease;
   max-width:260px;
 }
+
 .random-line.show{
   opacity:1;
   transform:translateY(0);
@@ -155,7 +278,10 @@ body{
 .love-glow{
   font-family:'Allura',cursive;
   font-size:60px;
-  text-shadow:0 0 10px #fff,0 0 20px #ff4e8d,0 0 30px #ff0066;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 20px #ff4e8d,
+    0 0 30px #ff0066;
   opacity:0;
   transition:opacity 2s ease;
 }
