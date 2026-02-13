@@ -1,40 +1,85 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>For Kavya ❤️</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-</head>
-<body>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-<audio id="bgMusic" src="song.mp3"></audio>
+body{
+  font-family:'Playfair Display',serif;
+  background:linear-gradient(135deg,#ffb6c1 0%,#c2185b 50%,#8b0000 100%);
+  min-height:100vh;
+  overflow-x:hidden;
+  color:white;
+}
 
-<!-- SLIDE 6 – HER GALLERY -->
-<section class="screen active" id="slide6">
+.screen{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px;
+}
 
-  <div id="herGallery" class="gallery"></div>
+.hidden{display:none;}
 
-  <h1 id="proposalText" class="hidden">
-    Will you be my Valentine and my forever? ❤️
-  </h1>
+.gallery{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:40px;
+  margin-bottom:40px;
+  position:relative;
+  z-index:2;
+}
 
-  <div id="proposalButtons" class="hidden">
-    <button class="btn" onclick="acceptLove()">Yes ❤️</button>
-    <button class="btn" id="noBtn">No</button>
-  </div>
+.her-photo,
+.our-photo{
+  height:340px;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 1.2s ease;
+}
 
-</section>
+.center-landscape{height:380px;}
+.our-center{height:420px;}
 
-<!-- SLIDE 7 – FINAL -->
-<section class="screen" id="slide7">
+.show-photo{
+  opacity:1;
+  transform:translateY(0);
+}
 
-  <div id="ourGallery" class="gallery"></div>
+.btn{
+  padding:16px 50px;
+  border-radius:50px;
+  border:none;
+  font-size:20px;
+  background:linear-gradient(45deg,#ff4e8d,#ff0066);
+  color:white;
+  cursor:pointer;
+  margin:20px;
+}
 
-  <div id="finalLove"></div>
+#noBtn{
+  position:fixed;
+  z-index:9999;
+}
 
-</section>
+.random-line{
+  position:fixed;
+  font-size:22px;
+  font-weight:bold;
+  opacity:0;
+  transition:opacity 1.5s ease;
+  z-index:1;
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+.love-glow{
+  font-family:'Allura',cursive;
+  font-size:60px;
+  margin-top:40px;
+  text-shadow:0 0 10px #fff,
+               0 0 20px #ff4e8d,
+               0 0 30px #ff0066;
+  opacity:0;
+  transition:opacity 2s ease;
+  text-align:center;
+}
