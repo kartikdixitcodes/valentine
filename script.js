@@ -91,26 +91,33 @@ document.onmousemove=(e)=>{
 
 /* Her Gallery */
 function startHerGallery(){
+
   const gallery=document.getElementById("herGallery");
   gallery.innerHTML="";
+
   const imgs=["her1.jpg","her2.jpg","her5.jpg","her3.jpg","her4.jpg"];
 
   let i=0;
+
   function next(){
+
     if(i>=imgs.length){
       document.getElementById("proposalText").classList.remove("hidden");
       document.getElementById("proposalButtons").classList.remove("hidden");
       activateNo();
       return;
     }
+
     const img=document.createElement("img");
     img.src="images/"+imgs[i];
     gallery.appendChild(img);
 
     setTimeout(()=>img.classList.add("show"),200);
+
     i++;
-    setTimeout(next,1500);
+    setTimeout(next,1400);
   }
+
   next();
 }
 
@@ -199,3 +206,4 @@ function fadeLove(){
   container.appendChild(love);
   setTimeout(()=>love.style.opacity=1,300);
 }
+
