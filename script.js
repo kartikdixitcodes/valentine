@@ -184,62 +184,73 @@ function startOurGallery(){
 
 /* RANDOM TEXT */
 function revealRandomLove(){
- const lines=[
-  "You are my safe place.",
-  "You are my calm.",
-  "You are my happiness.",
-  "You are my forever.",
-  "You are everything I prayed for."
- ];
 
- const slide=document.getElementById("slide7");
- const placed=[];
+  const lines = [
+    "You are my safe place.",
+    "You are my calm.",
+    "You are my happiness.",
+    "You are my forever.",
+    "You are everything I prayed for."
+  ];
 
- lines.forEach((text,i)=>{
-  setTimeout(()=>{
-   const el=document.createElement("div");
-   el.className="random-line";
-   el.innerText=text;
+  const textLayer = document.getElementById("textLayer");
+  textLayer.innerHTML = "";
 
-   let x,y,valid=false;
+  const gallery = document.getElementById("ourGallery");
+  const galleryRect = gallery.getBoundingClientRect();
 
-   while(!valid){
-    const leftSide=i%2===0;
-    x=leftSide?
-     Math.random()*(window.innerWidth*0.25):
-     window.innerWidth*0.75+Math.random()*(window.innerWidth*0.25);
+  lines.forEach((text,i)=>{
 
-    y=Math.random()*(window.innerHeight-250)+80;
+    setTimeout(()=>{
 
-    valid=true;
-    for(let p of placed){
-     if(Math.abs(p.x-x)<120&&Math.abs(p.y-y)<60){valid=false;break;}
-    }
-   }
+      const el = document.createElement("div");
+      el.className = "random-line";
+      el.innerText = text;
 
-   placed.push({x,y});
-   el.style.left=x+"px";
-   el.style.top=y+"px";
+      const wrapperWidth = window.innerWidth;
+      const wrapperHeight = window.innerHeight;
 
-   slide.appendChild(el);
+      let x,y;
 
-   setTimeout(()=>el.style.opacity="1",100);
-  },i*900);
- });
+      const leftZone = galleryRect.left - 50;
+      const rightZone = galleryRect.right + 50;
 
- setTimeout(()=>fadeLove(),6000);
+      if(i % 2 === 0){
+        x = Math.random() * (leftZone - 20);
+      } else {
+        x = rightZone + Math.random() * (wrapperWidth - rightZone - 40);
+      }
+
+      y = Math.random() * (wrapperHeight - 250) + 80;
+
+      el.style.left = x + "px";
+      el.style.top = y + "px";
+
+      textLayer.appendChild(el);
+
+      setTimeout(()=>{
+        el.classList.add("show");
+      },100);
+
+    }, i * 900);
+
+  });
+
+  setTimeout(()=>fadeLove(), 6000);
 }
 
-/* LOVE GLOW */
 function fadeLove(){
- const container=document.getElementById("finalLove");
- container.innerHTML="";
 
- const love=document.createElement("div");
- love.className="love-glow";
- love.innerText="I LOVE YOU SO MUCH MY LOVE ❤️";
+  const container = document.getElementById("finalLove");
+  container.innerHTML = "";
 
- container.appendChild(love);
+  const love = document.createElement("div");
+  love.className = "love-glow";
+  love.innerText = "I LOVE YOU SO MUCH MY LOVE ❤️";
 
- setTimeout(()=>love.style.opacity="1",200);
+  container.appendChild(love);
+
+  setTimeout(()=>{
+    love.style.opacity = "1";
+  },200);
 }
