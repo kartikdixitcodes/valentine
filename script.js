@@ -111,12 +111,18 @@ function startHerGallery(){
   function showNext(){
 
     if(i >= imgs.length){
-      proposalText.classList.remove("hidden");
-      proposalButtons.classList.remove("hidden");
-      activateNo();
-      return;
-    }
 
+  // Show the text first
+  proposalText.classList.remove("hidden");
+
+  // Wait for text animation to finish before buttons
+  setTimeout(()=>{
+    proposalButtons.classList.remove("hidden");
+    activateNo();
+  }, 900); // small smooth delay
+
+  return;
+}
     const img = document.createElement("img");
     img.src = "images/" + imgs[i];
     img.classList.add("proposal-img");
@@ -230,6 +236,7 @@ function fadeLove(){
   container.appendChild(love);
   setTimeout(()=>love.style.opacity=1,300);
 }
+
 
 
 
