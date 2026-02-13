@@ -199,6 +199,9 @@ function revealRandomLove(){
   const gallery = document.getElementById("ourGallery");
   const galleryRect = gallery.getBoundingClientRect();
 
+  const safeTop = galleryRect.top - 150;
+  const safeBottom = galleryRect.bottom + 150;
+
   lines.forEach((text,i)=>{
 
     setTimeout(()=>{
@@ -207,36 +210,35 @@ function revealRandomLove(){
       el.className = "random-line";
       el.innerText = text;
 
-      const wrapperWidth = window.innerWidth;
-      const wrapperHeight = window.innerHeight;
-
       let x,y;
 
       const leftZone = galleryRect.left - 50;
       const rightZone = galleryRect.right + 50;
 
       if(i % 2 === 0){
-        x = Math.random() * (leftZone - 20);
+        x = Math.random() * (leftZone - 50);
       } else {
-        x = rightZone + Math.random() * (wrapperWidth - rightZone - 40);
+        x = rightZone + Math.random() * (window.innerWidth - rightZone - 100);
       }
 
-      y = Math.random() * (wrapperHeight - 250) + 80;
+      y = Math.random() * (window.innerHeight - 250) + 80;
+
+      if(y > safeTop && y < safeBottom){
+        y = safeBottom + 40;
+      }
 
       el.style.left = x + "px";
       el.style.top = y + "px";
 
       textLayer.appendChild(el);
 
-      setTimeout(()=>{
-        el.classList.add("show");
-      },100);
+      setTimeout(()=> el.classList.add("show"),100);
 
-    }, i * 900);
+    }, i * 1000);
 
   });
 
-  setTimeout(()=>fadeLove(), 6000);
+  setTimeout(()=>fadeLove(), 6500);
 }
 
 function fadeLove(){
