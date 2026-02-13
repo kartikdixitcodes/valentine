@@ -1,8 +1,4 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Playfair Display',serif;
@@ -12,10 +8,9 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= SCREEN ================= */
+/* Slides */
 .screen{
   min-height:100vh;
-  width:100%;
   display:none;
   flex-direction:column;
   justify-content:center;
@@ -25,19 +20,26 @@ body{
   position:relative;
 }
 
-.screen.active{
-  display:flex;
-}
+.screen.active{display:flex;}
 
-/* ================= HEADINGS ================= */
+.hidden{display:none;}
+
+/* Headings */
 h1,h2{
   font-family:'Great Vibes',cursive;
   font-size:70px;
   margin-bottom:30px;
 }
 
-/* ================= BUTTONS ================= */
-.btn{
+/* Glow text */
+.glow-text{
+  text-shadow:0 0 10px #fff,
+              0 0 20px #ff4e8d,
+              0 0 40px #ff0066;
+}
+
+/* Buttons */
+.main-btn{
   padding:16px 50px;
   border:none;
   border-radius:40px;
@@ -48,14 +50,14 @@ h1,h2{
   color:white;
   cursor:pointer;
   margin-top:25px;
-  transition:all 0.3s ease;
+  transition:0.3s ease;
 }
 
-.btn:hover{
-  transform:translateY(-5px) scale(1.05);
+.main-btn:hover{
+  transform:translateY(-6px) scale(1.05);
 }
 
-/* ================= LOADING ================= */
+/* Loading */
 .progress-container{
   width:350px;
   height:12px;
@@ -71,34 +73,25 @@ h1,h2{
   border-radius:20px;
 }
 
-#enterBtn{
-  opacity:0;
-  transition:opacity 0.8s ease;
+/* Countdown */
+#countdown{
+  font-size:28px;
+  font-weight:600;
+  margin-top:20px;
 }
 
-/* ===== FLOWER SECTION FIXED ===== */
-
-#slide4{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
+/* Flowers */
 .flower-container{
   display:flex;
-  flex-direction:row !important;
   justify-content:center;
   align-items:center;
-  gap:90px;
-  width:100%;
-  max-width:900px;
+  gap:80px;
 }
 
 .flower{
   font-size:70px;
   cursor:pointer;
-  transition:transform 0.3s ease;
+  transition:0.3s ease;
 }
 
 .flower:hover{
@@ -113,8 +106,7 @@ h1,h2{
   min-height:30px;
 }
 
-/* ===== SLIDER FIXED ===== */
-
+/* Slider */
 .slider{
   position:relative;
   width:420px;
@@ -153,7 +145,7 @@ h1,h2{
   z-index:3;
 }
 
-/* ================= GALLERY ================= */
+/* Gallery */
 .gallery{
   display:flex;
   justify-content:center;
@@ -173,20 +165,15 @@ h1,h2{
   transition:1s ease;
 }
 
-.center-landscape{
-  height:380px;
-}
-
-.our-center{
-  height:420px;
-}
+.center-landscape{height:380px;}
+.our-center{height:420px;}
 
 .show-photo{
   opacity:1;
   transform:translateY(0);
 }
 
-/* ================= RANDOM TEXT FIX ================= */
+/* Floating Text */
 .random-line{
   position:absolute;
   font-family:'Quicksand',sans-serif;
@@ -197,11 +184,14 @@ h1,h2{
   z-index:1;
 }
 
-/* ================= FINAL LOVE GLOW FIX ================= */
+/* Final Love Glow */
 #finalLove{
-  position:relative;
-  z-index:10;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   margin-top:40px;
+  z-index:10;
 }
 
 .love-glow{
@@ -209,10 +199,8 @@ h1,h2{
   font-size:64px;
   text-align:center;
   opacity:0;
-  text-shadow:
-    0 0 15px #fff,
-    0 0 35px #ff4e8d,
-    0 0 60px #ff0066;
+  text-shadow:0 0 15px #fff,
+              0 0 35px #ff4e8d,
+              0 0 60px #ff0066;
   transition:opacity 2s ease;
 }
-
