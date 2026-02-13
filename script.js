@@ -104,49 +104,70 @@ document.addEventListener("mousemove",(e)=>{
 
 /* Her Gallery */
 function startHerGallery(){
-  const gallery=document.getElementById("herGallery");
-  const imgs=["her1.jpg","her2.jpg","her5.jpg","her3.jpg","her4.jpg"];
-  let i=0;
+
+  const gallery = document.getElementById("herGallery");
+
+  // CLEAR FIRST (stops duplication)
+  gallery.innerHTML = "";
+
+  const imgs = ["her1.jpg","her2.jpg","her5.jpg","her3.jpg","her4.jpg"];
+  let i = 0;
 
   function next(){
-    if(i>=imgs.length){
+
+    if(i >= imgs.length){
+
       document.getElementById("proposalText").classList.remove("hidden");
       document.getElementById("proposalButtons").classList.remove("hidden");
+
       activateNo();
       return;
     }
 
-    const img=document.createElement("img");
-    img.src="images/"+imgs[i];
-    img.classList.add("her-photo");
+    const img = document.createElement("img");
+    img.src = "images/" + imgs[i];
+    img.className = "her-photo";
+
     gallery.appendChild(img);
 
     setTimeout(()=>{
       img.classList.add("show-photo");
-      if(i===2) img.classList.add("center-landscape");
+      if(i === 2) img.classList.add("center-landscape");
       i++;
-      setTimeout(next,1000);
-    },300);
+      setTimeout(next, 900);
+    }, 300);
   }
+
   next();
 }
-
 /* No Button */
 function activateNo(){
-  const no=document.getElementById("noBtn");
+
+  const no = document.getElementById("noBtn");
 
   document.addEventListener("mousemove",(e)=>{
-    const rect=no.getBoundingClientRect();
-    const dx=e.clientX-(rect.left+rect.width/2);
-    const dy=e.clientY-(rect.top+rect.height/2);
-    const dist=Math.sqrt(dx*dx+dy*dy);
 
-    if(dist<120){
-      no.style.transform=`translate(${Math.random()*500-250}px,${Math.random()*300-150}px)`;
+    const rect = no.getBoundingClientRect();
+
+    const dx = e.clientX - (rect.left + rect.width/2);
+    const dy = e.clientY - (rect.top + rect.height/2);
+    const dist = Math.sqrt(dx*dx + dy*dy);
+
+    if(dist < 130){
+
+      const maxX = window.innerWidth - rect.width - 20;
+      const maxY = window.innerHeight - rect.height - 20;
+
+      const newX = Math.random() * maxX;
+      const newY = Math.random() * maxY;
+
+      no.style.position = "fixed";
+      no.style.left = newX + "px";
+      no.style.top = newY + "px";
     }
+
   });
 }
-
 /* Yes */
 function acceptLove(){
   showSlide("slide7");
@@ -182,7 +203,8 @@ function createImg(src,extra){
 
 /* Floating text */
 function revealRandomLove(){
-  const lines=[
+
+  const lines = [
     "You are my safe place.",
     "You are my calm.",
     "You are my happiness.",
@@ -190,44 +212,58 @@ function revealRandomLove(){
     "You are everything I prayed for."
   ];
 
-  const slide=document.getElementById("slide7");
-  const gallery=document.getElementById("ourGallery");
-  const rect=gallery.getBoundingClientRect();
+  const slide = document.getElementById("slide7");
+
+  const leftZone = {
+    minX: 0,
+    maxX: window.innerWidth * 0.25
+  };
+
+  const rightZone = {
+    minX: window.innerWidth * 0.75,
+    maxX: window.innerWidth
+  };
 
   lines.forEach((text,i)=>{
+
     setTimeout(()=>{
-      const el=document.createElement("div");
-      el.className="random-line";
-      el.innerText=text;
 
-      let x,y,valid=false;
+      const el = document.createElement("div");
+      el.className = "random-line";
+      el.innerText = text;
 
-      while(!valid){
-        x=Math.random()*window.innerWidth;
-        y=Math.random()*(window.innerHeight-200);
+      const useLeft = i % 2 === 0;
 
-        const inside=
-          x>rect.left-50 &&
-          x<rect.right+50 &&
-          y>rect.top-50 &&
-          y<rect.bottom+50;
+      const zone = useLeft ? leftZone : rightZone;
 
-        if(!inside) valid=true;
-      }
+      const x = Math.random() * (zone.maxX - zone.minX) + zone.minX;
+      const y = Math.random() * (window.innerHeight - 250) + 50;
 
-      el.style.left=x+"px";
-      el.style.top=y+"px";
+      el.style.left = x + "px";
+      el.style.top = y + "px";
 
       slide.appendChild(el);
-      setTimeout(()=>el.style.opacity="1",100);
-    },i*900);
+
+      setTimeout(()=>{
+        el.style.opacity = "1";
+      },100);
+
+    }, i * 900);
+
   });
 
   setTimeout(()=>{
-    const love=document.createElement("div");
-    love.className="love-glow";
-    love.innerText="I LOVE YOU SO MUCH MY LOVE ❤️";
+
+    const love = document.createElement("div");
+    love.className = "love-glow";
+    love.innerText = "I LOVE YOU SO MUCH MY LOVE ❤️";
+
+    document.getElementById("finalLove").innerHTML = "";
     document.getElementById("finalLove").appendChild(love);
-    setTimeout(()=>love.style.opacity="1",200);
-  },5000);
+
+    setTimeout(()=>{
+      love.style.opacity = "1";
+    },200);
+
+  }, 5000);
 }
