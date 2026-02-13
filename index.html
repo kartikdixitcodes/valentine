@@ -4,51 +4,53 @@
 <meta charset="UTF-8">
 <title>For Kavya ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cinzel:wght@700&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <audio id="bgMusic" src="song.mp3" loop></audio>
 
-<!-- SLIDE 1 -->
+<!-- Slide 1 -->
 <section class="screen active" id="slide1">
-  <img src="images/cute.png" class="teddy">
-  <h1>For Kavya ❤️</h1>
-  <button class="btn" onclick="startExperience()">Continue</button>
+  <h1 class="big-title">For Kavya ❤️</h1>
+  <button class="btn" onclick="goToSlide2()">Continue</button>
 </section>
 
-<!-- SLIDE 2 -->
+<!-- Slide 2 -->
 <section class="screen" id="slide2">
-  <h1 class="glow-text">Loading something magical...</h1>
+  <h1 class="big-title glow">Loading something magical...</h1>
   <div id="loadingWrapper">
     <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
+      <div id="progressBar" class="progress-bar"></div>
     </div>
   </div>
-  <button class="btn hidden" id="enterBtn" onclick="goToSlide3()">Enter ❤️</button>
+  <button id="enterBtn" class="btn hidden" onclick="goToSlide3()">Enter</button>
 </section>
 
-<!-- SLIDE 3 -->
+<!-- Slide 3 -->
 <section class="screen" id="slide3">
   <h1>Together since 22 May 2025 ❤️</h1>
-  <div id="countdown"></div>
-  <button class="btn hidden" id="worldBtn" onclick="goToSlide4()">Enter Our World ❤️</button>
+  <div id="countdown" class="fade-item"></div>
+  <button id="enterWorldBtn" class="btn hidden" onclick="goToSlide4()">Enter Our World ❤️</button>
 </section>
 
-<!-- SLIDE 4 -->
+<!-- Slide 4 -->
 <section class="screen" id="slide4">
-  <h1>Pick a flower 🌸</h1>
+  <h1 class="big-title">Pick a flower 🌸</h1>
+
   <div class="flower-container">
-    <div class="flower" onclick="showFlower(0)">🌹</div>
-    <div class="flower" onclick="showFlower(1)">🌺</div>
-    <div class="flower" onclick="showFlower(2)">🌸</div>
+    <div class="flower" onclick="showFlowerMessage(0)">🌹</div>
+    <div class="flower" onclick="showFlowerMessage(1)">🌷</div>
+    <div class="flower" onclick="showFlowerMessage(2)">🌸</div>
   </div>
+
   <div id="flowerMessage" class="flower-text"></div>
   <button class="btn" onclick="goToSlide5()">Continue</button>
 </section>
 
-<!-- SLIDE 5 -->
+<!-- Slide 5 -->
 <section class="screen" id="slide5">
   <h1>Slide to unlock my heart ❤️</h1>
   <div class="slider">
@@ -58,11 +60,11 @@
   </div>
 </section>
 
-<!-- SLIDE 6 -->
+<!-- Slide 6 -->
 <section class="screen" id="slide6">
-  <div id="herGallery" class="gallery"></div>
+  <div class="gallery" id="herGallery"></div>
 
-  <h1 id="proposalText" class="hidden">
+  <h1 id="proposalText" class="big-title hidden">
     Will you be my Valentine and my forever? ❤️
   </h1>
 
@@ -72,12 +74,16 @@
   </div>
 </section>
 
-<!-- SLIDE 7 FIXED -->
+<!-- Slide 7 -->
 <section class="screen" id="slide7">
   <div class="final-wrapper">
-    <div id="ourGallery" class="gallery"></div>
+
+    <div class="gallery" id="ourGallery"></div>
+
     <div id="textLayer"></div>
+
     <div id="finalLove"></div>
+
   </div>
 </section>
 
