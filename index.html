@@ -17,42 +17,47 @@
 <!-- Slide 1 -->
 <section class="screen active" id="slide1">
   <h1>For Kavya ❤️</h1>
-  <button class="btn" onclick="goToSlide2()">Continue</button>
+  <button class="btn main-btn" onclick="goToSlide2()">Continue</button>
 </section>
 
 <!-- Slide 2 -->
 <section class="screen" id="slide2">
-  <h2>Loading something magical…</h2>
+  <h2 class="glow-text">Loading something magical…</h2>
+
   <div id="loadingWrapper">
     <div class="progress-container">
       <div class="progress-bar" id="progressBar"></div>
     </div>
   </div>
-  <button class="btn" id="enterBtn" onclick="goToSlide3()">Enter</button>
+
+  <button class="btn main-btn hidden" id="enterBtn" onclick="goToSlide3()">Enter</button>
 </section>
 
 <!-- Slide 3 -->
 <section class="screen" id="slide3">
   <h1>Together since 22 May 2025 ❤️</h1>
   <div id="countdown"></div>
-  <button class="btn" onclick="goToSlide4()">Enter Our World ❤️</button>
+  <button class="btn main-btn hidden" id="worldBtn" onclick="goToSlide4()">Enter Our World ❤️</button>
 </section>
 
 <!-- Slide 4 -->
 <section class="screen" id="slide4">
   <h2>Pick a flower 🌸</h2>
+
   <div class="flower-container">
     <div class="flower" onclick="showFlowerMessage(0)">🌹</div>
     <div class="flower" onclick="showFlowerMessage(1)">🌺</div>
     <div class="flower" onclick="showFlowerMessage(2)">🌸</div>
   </div>
+
   <p id="flowerMessage" class="flower-text"></p>
-  <button class="btn" onclick="goToSlide5()">Continue</button>
+  <button class="btn main-btn" onclick="goToSlide5()">Continue</button>
 </section>
 
 <!-- Slide 5 -->
 <section class="screen" id="slide5">
   <h2>Slide to unlock my heart ❤️</h2>
+
   <div class="slider">
     <div class="slider-track"></div>
     <div class="slider-fill" id="sliderFill"></div>
@@ -63,10 +68,14 @@
 <!-- Slide 6 -->
 <section class="screen" id="slide6">
   <div class="gallery" id="herGallery"></div>
-  <h2 id="proposalText">Will you be my Valentine and my forever? ❤️</h2>
-  <div id="proposalButtons">
-    <button class="btn" onclick="acceptLove()">Yes ❤️</button>
-    <button class="btn" id="noBtn">No</button>
+
+  <h2 id="proposalText" class="hidden">
+    Will you be my Valentine and my forever? ❤️
+  </h2>
+
+  <div id="proposalButtons" class="hidden">
+    <button class="btn main-btn" onclick="acceptLove()">Yes ❤️</button>
+    <button class="btn main-btn" id="noBtn">No</button>
   </div>
 </section>
 
@@ -79,4 +88,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
