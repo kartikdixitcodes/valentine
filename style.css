@@ -1,4 +1,5 @@
-/* RESET */
+/* ================= RESET ================= */
+
 *{
   margin:0;
   padding:0;
@@ -13,7 +14,8 @@ body{
   min-height:100vh;
 }
 
-/* SLIDES */
+/* ================= SLIDES ================= */
+
 .screen{
   min-height:100vh;
   width:100%;
@@ -33,7 +35,16 @@ body{
   opacity:1;
 }
 
-/* BUTTONS */
+/* ================= TITLES ================= */
+
+.big-title{
+  font-family:'Cinzel', serif;
+  font-weight:700;
+  font-size:38px;
+}
+
+/* ================= BUTTONS ================= */
+
 .btn{
   padding:16px 50px;
   border-radius:50px;
@@ -53,11 +64,16 @@ body{
   box-shadow:0 18px 35px rgba(0,0,0,0.4);
 }
 
-/* LOADING BAR */
+.hidden{
+  display:none;
+}
+
+/* ================= LOADING BAR ================= */
+
 .progress-container{
   width:350px;
   height:12px;
-  background:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,.3);
   border-radius:20px;
   margin:30px 0;
 }
@@ -70,7 +86,8 @@ body{
   transition:width 0.3s linear;
 }
 
-/* FLOWER SECTION */
+/* ================= FLOWER ================= */
+
 .flower-container{
   display:flex;
   gap:60px;
@@ -88,12 +105,12 @@ body{
 }
 
 .flower-text{
-  font-family:'Quicksand', sans-serif;
-  font-size:24px;
+  font-size:22px;
   margin-top:15px;
 }
 
-/* SLIDER */
+/* ================= SLIDER ================= */
+
 .slider{
   position:relative;
   width:400px;
@@ -105,7 +122,7 @@ body{
   position:absolute;
   width:100%;
   height:100%;
-  background:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,.3);
   border-radius:50px;
 }
 
@@ -133,42 +150,53 @@ body{
   z-index:5;
 }
 
-/* GALLERY */
-.gallery{
+/* ================= SLIDE 6 (PROPOSAL) ================= */
+
+#slide6{
+  overflow:visible;
+}
+
+.proposal-container{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Gallery Layout */
+.proposal-gallery{
   display:flex;
   justify-content:center;
   align-items:flex-end;
   gap:40px;
-  margin-bottom:40px;
   flex-wrap:nowrap;
+  margin-bottom:40px;
 }
 
-.her-photo,
-.our-photo{
-  height:340px;
+/* Proper image sizing */
+#slide6 .proposal-gallery img,
+#slide6 #herGallery img{
+  height:300px;
+  max-width:200px;
+  object-fit:cover;
+  border-radius:20px;
   opacity:0;
   transform:translateY(40px);
-  border-radius:20px;
   transition:all 1.2s ease;
 }
 
-.show-photo{
+#slide6 .proposal-gallery img.show,
+#slide6 #herGallery img.show{
   opacity:1;
   transform:translateY(0);
 }
 
-.center-landscape{
-  height:380px !important;
-}
-
-.our-center{
-  height:420px !important;
-}
-
-/* PROPOSAL TEXT */
+/* Proposal Text */
 #proposalText{
-  margin-top:30px;
-  font-size:38px;
+  margin-top:20px;
+  font-size:36px;
   font-weight:bold;
   opacity:0;
   transition:opacity 1s ease;
@@ -178,16 +206,16 @@ body{
   opacity:1;
 }
 
-/* ======= THIS IS THE FIX ======= */
-/* Proposal Buttons Hidden Initially */
+/* Buttons Hidden Initially */
 #proposalButtons{
   opacity:0;
   pointer-events:none;
   transition:opacity 0.8s ease;
   display:flex;
-  gap:20px;
+  gap:25px;
   justify-content:center;
   align-items:center;
+  margin-top:25px;
 }
 
 #proposalButtons.show-buttons{
@@ -195,41 +223,87 @@ body{
   pointer-events:auto;
 }
 
-/* FINAL SLIDE MESSAGE */
-#finalMessage{
+/* Ensure No button never blocks Yes */
+#yesBtn{
   position:relative;
-  width:100%;
-  height:300px;
-  margin-top:20px;
+  z-index:5;
 }
 
-#finalMessage p{
+#noBtn{
+  position:relative;
+  z-index:6;
+}
+
+/* ================= SLIDE 7 (FINAL) ================= */
+
+.final-wrapper{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* Final Gallery */
+#slide7 .gallery{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:40px;
+}
+
+#slide7 .gallery img{
+  height:320px;
+  max-width:220px;
+  object-fit:cover;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1.5s ease;
+}
+
+#slide7 .gallery img.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Center image slightly bigger */
+#slide7 .our-center{
+  height:380px !important;
+  max-width:260px !important;
+}
+
+/* Floating text */
+.random-line{
   position:absolute;
   font-size:22px;
-  font-weight:600;
+  font-weight:bold;
   opacity:0;
-  transition:opacity 1s ease;
+  transform:translateY(20px);
+  transition:all 1.5s ease;
+  max-width:260px;
+}
+
+.random-line.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Glow message */
+#finalLove{
+  position:absolute;
+  bottom:90px;
+  width:100%;
+  text-align:center;
+  z-index:2;
 }
 
 .love-glow{
   font-family:'Allura', cursive;
   font-size:60px;
-  margin-top:60px;
   text-shadow:
     0 0 10px #fff,
     0 0 20px #ff4e8d,
     0 0 30px #ff0066;
   opacity:0;
   transition:opacity 1.5s ease;
-}
-
-/* FLOATING TEXT CONTAINER FIX */
-#slide7{
-  overflow:hidden;
-}
-
-/* MAKE SURE NO BUTTON STAYS ABOVE */
-#noBtn{
-  position:relative;
-  z-index:10;
 }
