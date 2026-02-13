@@ -40,7 +40,6 @@ body{
   text-shadow:0 0 10px #fff,0 0 20px #ff4e8d;
 }
 
-/* Loading */
 .progress-container{
   width:350px;height:12px;
   background:rgba(255,255,255,0.3);
@@ -53,7 +52,6 @@ body{
   transition:width 0.3s linear;
 }
 
-/* Flower */
 .flower-container{
   display:flex;gap:70px;margin:40px 0;
 }
@@ -67,7 +65,6 @@ body{
   min-height:40px;
 }
 
-/* Slider */
 .slider{
   position:relative;width:400px;height:70px;margin-top:40px;
 }
@@ -90,7 +87,6 @@ body{
   font-size:32px;cursor:pointer;top:-10px;
 }
 
-/* Gallery */
 .gallery{
   display:flex;
   justify-content:center;
@@ -113,22 +109,44 @@ body{
   opacity:1;transform:translateY(0);
 }
 
-/* NO button */
 #noBtn{
   position:fixed;
   z-index:9999;
 }
 
-/* Random text */
+/* -------- FINAL SLIDE FIXES -------- */
+
+.final-wrapper{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:100vh;
+  overflow:hidden;
+}
+
+#textLayer{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
 .random-line{
-  position:fixed;
+  position:absolute;
   font-size:22px;
   font-weight:bold;
   opacity:0;
-  transition:opacity 1.5s ease;
+  transform:translateY(20px);
+  transition:opacity 1.5s ease, transform 1.5s ease;
 }
 
-/* Glow text */
+.random-line.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 .love-glow{
   font-family:'Allura',cursive;
   font-size:60px;
@@ -137,4 +155,6 @@ body{
                0 0 30px #ff0066;
   opacity:0;
   transition:opacity 2s ease;
+  text-align:center;
+  margin-top:40px;
 }
