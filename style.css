@@ -8,7 +8,6 @@ body{
   overflow-x:hidden;
 }
 
-/* Slides */
 .screen{
   min-height:100vh;
   display:none;
@@ -24,125 +23,71 @@ body{
 
 .hidden{display:none;}
 
-/* Headings */
-h1,h2{
-  font-family:'Great Vibes',cursive;
-  font-size:70px;
-  margin-bottom:30px;
-}
-
-/* Glow text */
-.glow-text{
-  text-shadow:0 0 10px #fff,
-              0 0 20px #ff4e8d,
-              0 0 40px #ff0066;
-}
-
-/* Buttons */
-.main-btn{
+.btn{
   padding:16px 50px;
+  border-radius:50px;
   border:none;
-  border-radius:40px;
-  font-family:'Quicksand',sans-serif;
   font-size:20px;
-  font-weight:600;
   background:linear-gradient(45deg,#ff4e8d,#ff0066);
   color:white;
   cursor:pointer;
-  margin-top:25px;
-  transition:0.3s ease;
+  margin:20px;
 }
 
-.main-btn:hover{
-  transform:translateY(-6px) scale(1.05);
+.teddy{width:200px;margin-bottom:20px;}
+
+.glow-text{
+  text-shadow:0 0 10px #fff,0 0 20px #ff4e8d;
 }
 
 /* Loading */
 .progress-container{
-  width:350px;
-  height:12px;
+  width:350px;height:12px;
   background:rgba(255,255,255,0.3);
-  border-radius:20px;
-  margin:30px 0;
+  border-radius:20px;margin:30px 0;
 }
 
 .progress-bar{
-  height:100%;
-  width:0%;
-  background:white;
-  border-radius:20px;
+  height:100%;width:0%;
+  background:white;border-radius:20px;
+  transition:width 0.3s linear;
 }
 
-/* Countdown */
-#countdown{
-  font-size:28px;
-  font-weight:600;
-  margin-top:20px;
-}
-
-/* Flowers */
+/* Flower */
 .flower-container{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:80px;
+  display:flex;gap:70px;margin:40px 0;
 }
 
-.flower{
-  font-size:70px;
-  cursor:pointer;
-  transition:0.3s ease;
-}
-
-.flower:hover{
-  transform:translateY(-12px) scale(1.2);
-}
+.flower{font-size:64px;cursor:pointer;transition:0.4s;}
+.flower:hover{transform:translateY(-12px) scale(1.15);}
 
 .flower-text{
-  font-family:'Quicksand',sans-serif;
   font-size:24px;
-  font-weight:700;
-  margin-top:20px;
-  min-height:30px;
+  margin-top:15px;
+  min-height:40px;
 }
 
 /* Slider */
 .slider{
-  position:relative;
-  width:420px;
-  height:60px;
-  margin-top:40px;
+  position:relative;width:400px;height:70px;margin-top:40px;
 }
 
 .slider-track{
-  position:absolute;
-  width:100%;
-  height:100%;
+  position:absolute;width:100%;height:100%;
   background:rgba(255,255,255,0.3);
   border-radius:50px;
 }
 
 .slider-fill{
-  position:absolute;
-  height:100%;
-  width:0%;
-  background:#ff4081;
-  border-radius:50px;
+  position:absolute;height:100%;width:0%;
+  background:#ff4081;border-radius:50px;
 }
 
 .slider-handle{
-  position:absolute;
-  width:60px;
-  height:60px;
-  background:#ff0066;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  left:0;
-  top:0;
-  z-index:3;
+  position:absolute;width:90px;height:90px;
+  background:#ff0066;border-radius:50%;
+  display:flex;justify-content:center;align-items:center;
+  font-size:32px;cursor:pointer;top:-10px;
 }
 
 /* Gallery */
@@ -151,56 +96,45 @@ h1,h2{
   justify-content:center;
   align-items:flex-end;
   gap:40px;
-  margin-bottom:60px;
-  position:relative;
+  margin-bottom:40px;
   z-index:2;
 }
 
-.her-photo,
-.our-photo{
-  height:340px;
-  border-radius:20px;
-  opacity:0;
-  transform:translateY(20px);
-  transition:1s ease;
+.her-photo,.our-photo{
+  height:340px;border-radius:20px;
+  opacity:0;transform:translateY(30px);
+  transition:all 1.2s ease;
 }
 
 .center-landscape{height:380px;}
 .our-center{height:420px;}
 
 .show-photo{
-  opacity:1;
-  transform:translateY(0);
+  opacity:1;transform:translateY(0);
 }
 
-/* Floating Text */
+/* NO button */
+#noBtn{
+  position:fixed;
+  z-index:9999;
+}
+
+/* Random text */
 .random-line{
-  position:absolute;
-  font-family:'Quicksand',sans-serif;
-  font-weight:700;
+  position:fixed;
   font-size:22px;
+  font-weight:bold;
   opacity:0;
-  transition:1.2s ease;
-  z-index:1;
+  transition:opacity 1.5s ease;
 }
 
-/* Final Love Glow */
-#finalLove{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:40px;
-  z-index:10;
-}
-
+/* Glow text */
 .love-glow{
   font-family:'Allura',cursive;
-  font-size:64px;
-  text-align:center;
+  font-size:60px;
+  text-shadow:0 0 10px #fff,
+               0 0 20px #ff4e8d,
+               0 0 30px #ff0066;
   opacity:0;
-  text-shadow:0 0 15px #fff,
-              0 0 35px #ff4e8d,
-              0 0 60px #ff0066;
   transition:opacity 2s ease;
 }
