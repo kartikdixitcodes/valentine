@@ -198,12 +198,8 @@ body{
   margin-top:20px;
   font-size:36px;
   font-weight:bold;
-  opacity:0;
+  opacity:1;              /* ← make it visible */
   transition:opacity 1s ease;
-}
-
-#proposalText.show-proposal{
-  opacity:1;
 }
 
 /* Buttons Hidden Initially */
@@ -291,7 +287,7 @@ body{
 /* Glow message */
 #finalLove{
   position:absolute;
-  bottom:90px;
+  bottom:140px;   /* moved up closer to photos */
   width:100%;
   text-align:center;
   z-index:2;
@@ -307,3 +303,4 @@ body{
   opacity:0;
   transition:opacity 1.5s ease;
 }
+
