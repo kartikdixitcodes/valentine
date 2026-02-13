@@ -93,7 +93,7 @@ body{
   align-items:flex-end;
   gap:40px;
   margin-bottom:40px;
-  z-index:2;
+  z-index:5;
 }
 
 .her-photo,.our-photo{
@@ -102,7 +102,6 @@ body{
   transition:all 1.2s ease;
 }
 
-.center-landscape{height:380px;}
 .our-center{height:420px;}
 
 .show-photo{
@@ -114,13 +113,12 @@ body{
   z-index:9999;
 }
 
-/* -------- FINAL SLIDE FIXES -------- */
+/* -------- FINAL SLIDE SAFE ZONE FIX -------- */
 
 .final-wrapper{
   position:relative;
   width:100%;
-  height:100%;
-  min-height:100vh;
+  height:100vh;
   overflow:hidden;
 }
 
@@ -131,6 +129,7 @@ body{
   width:100%;
   height:100%;
   pointer-events:none;
+  z-index:1;
 }
 
 .random-line{
@@ -140,11 +139,21 @@ body{
   opacity:0;
   transform:translateY(20px);
   transition:opacity 1.5s ease, transform 1.5s ease;
+  max-width:300px;
+  text-align:center;
 }
 
 .random-line.show{
   opacity:1;
   transform:translateY(0);
+}
+
+#finalLove{
+  position:absolute;
+  bottom:40px;
+  width:100%;
+  text-align:center;
+  z-index:2;
 }
 
 .love-glow{
@@ -155,6 +164,4 @@ body{
                0 0 30px #ff0066;
   opacity:0;
   transition:opacity 2s ease;
-  text-align:center;
-  margin-top:40px;
 }
