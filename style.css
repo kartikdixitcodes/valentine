@@ -1,3 +1,4 @@
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -5,17 +6,14 @@
 }
 
 body{
-  font-family:'Playfair Display',serif;
+  font-family:'Playfair Display', serif;
   background:linear-gradient(135deg,#ffb6c1 0%,#c2185b 50%,#8b0000 100%);
   color:white;
-  min-height:100vh;
   overflow-x:hidden;
+  min-height:100vh;
 }
 
-/* ===================== */
-/* GENERAL SLIDES */
-/* ===================== */
-
+/* SLIDES */
 .screen{
   min-height:100vh;
   width:100%;
@@ -25,8 +23,9 @@ body{
   align-items:center;
   text-align:center;
   padding:40px;
+  position:relative;
   opacity:0;
-  transition:opacity .8s ease;
+  transition:opacity 0.8s ease;
 }
 
 .screen.active{
@@ -34,46 +33,31 @@ body{
   opacity:1;
 }
 
-.big-title{
-  font-family:'Cinzel',serif;
-  font-weight:700;
-  font-size:40px;
-}
-
-/* ===================== */
 /* BUTTONS */
-/* ===================== */
-
 .btn{
   padding:16px 50px;
   border-radius:50px;
   border:none;
+  font-size:20px;
+  font-weight:600;
   background:linear-gradient(45deg,#ff4e8d,#ff0066);
   color:white;
-  font-size:20px;
   cursor:pointer;
-  transition:all .4s ease;
+  transition:all 0.4s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
   margin:20px;
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
 }
 
 .btn:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 35px rgba(0,0,0,.4);
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 18px 35px rgba(0,0,0,0.4);
 }
 
-.hidden{
-  display:none;
-}
-
-/* ===================== */
 /* LOADING BAR */
-/* ===================== */
-
 .progress-container{
   width:350px;
   height:12px;
-  background:rgba(255,255,255,.3);
+  background:rgba(255,255,255,0.3);
   border-radius:20px;
   margin:30px 0;
 }
@@ -83,23 +67,10 @@ body{
   width:0%;
   background:white;
   border-radius:20px;
+  transition:width 0.3s linear;
 }
 
-/* ===================== */
-/* COUNTDOWN */
-/* ===================== */
-
-.fade-item{
-  opacity:0;
-  transition:opacity 2s ease;
-  font-size:22px;
-  margin:20px;
-}
-
-/* ===================== */
 /* FLOWER SECTION */
-/* ===================== */
-
 .flower-container{
   display:flex;
   gap:60px;
@@ -109,22 +80,20 @@ body{
 .flower{
   font-size:70px;
   cursor:pointer;
-  transition:all .4s ease;
+  transition:all 0.4s ease;
 }
 
 .flower:hover{
-  transform:translateY(-15px) scale(1.1);
+  transform:translateY(-15px) scale(1.15);
 }
 
 .flower-text{
-  font-size:22px;
+  font-family:'Quicksand', sans-serif;
+  font-size:24px;
   margin-top:15px;
 }
 
-/* ===================== */
 /* SLIDER */
-/* ===================== */
-
 .slider{
   position:relative;
   width:400px;
@@ -136,7 +105,7 @@ body{
   position:absolute;
   width:100%;
   height:100%;
-  background:rgba(255,255,255,.3);
+  background:rgba(255,255,255,0.3);
   border-radius:50px;
 }
 
@@ -146,6 +115,7 @@ body{
   width:0%;
   background:#ff4081;
   border-radius:50px;
+  transition:width 0.3s ease;
 }
 
 .slider-handle{
@@ -160,143 +130,106 @@ body{
   font-size:32px;
   cursor:pointer;
   top:-10px;
+  z-index:5;
 }
 
-/* Slide 6 Safe Layout */
-
-#slide6{
-  overflow:visible;
-}
-
-.proposal-container{
-  position:relative;
-  width:100%;
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.proposal-gallery{
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:40px;
-  margin-bottom:40px;
-}
-
-.proposal-img{
-  height:340px;
-  border-radius:20px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1.3s ease;
-}
-
-.proposal-img.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-#proposalText{
-  z-index:3;
-  position:relative;
-}
-
-#proposalButtons{
-  margin-top:30px;
-  display:flex;
-  gap:25px;
-  justify-content:center;
-  position:relative;
-  z-index:3;
-}
-
-#yesBtn{
-  position:relative;
-  z-index:4;
-}
-
-#noBtn{
-  position:relative;
-  z-index:4;
-}
-
-/* ===================== */
-/* FINAL SLIDE */
-/* ===================== */
-
-.final-wrapper{
-  position:relative;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
-}
-
+/* GALLERY */
 .gallery{
   display:flex;
   justify-content:center;
   align-items:flex-end;
   gap:40px;
+  margin-bottom:40px;
   flex-wrap:nowrap;
 }
 
-.gallery img{
+.her-photo,
+.our-photo{
   height:340px;
-  border-radius:20px;
   opacity:0;
   transform:translateY(40px);
-  transition:all 1.5s ease;
+  border-radius:20px;
+  transition:all 1.2s ease;
 }
 
-.gallery img.show{
+.show-photo{
   opacity:1;
   transform:translateY(0);
+}
+
+.center-landscape{
+  height:380px !important;
 }
 
 .our-center{
   height:420px !important;
 }
 
-#textLayer{
-  position:absolute;
-  inset:0;
-  z-index:1;
-}
-
-.random-line{
-  position:absolute;
-  font-size:22px;
+/* PROPOSAL TEXT */
+#proposalText{
+  margin-top:30px;
+  font-size:38px;
   font-weight:bold;
   opacity:0;
-  transform:translateY(20px);
-  transition:all 1.5s ease;
-  max-width:260px;
+  transition:opacity 1s ease;
 }
 
-.random-line.show{
+#proposalText.show-proposal{
   opacity:1;
-  transform:translateY(0);
 }
 
-#finalLove{
-  position:absolute;
-  bottom:90px;
+/* ======= THIS IS THE FIX ======= */
+/* Proposal Buttons Hidden Initially */
+#proposalButtons{
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.8s ease;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  align-items:center;
+}
+
+#proposalButtons.show-buttons{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* FINAL SLIDE MESSAGE */
+#finalMessage{
+  position:relative;
   width:100%;
-  text-align:center;
-  z-index:2;
+  height:300px;
+  margin-top:20px;
+}
+
+#finalMessage p{
+  position:absolute;
+  font-size:22px;
+  font-weight:600;
+  opacity:0;
+  transition:opacity 1s ease;
 }
 
 .love-glow{
-  font-family:'Allura',cursive;
+  font-family:'Allura', cursive;
   font-size:60px;
+  margin-top:60px;
   text-shadow:
     0 0 10px #fff,
     0 0 20px #ff4e8d,
     0 0 30px #ff0066;
   opacity:0;
-  transition:opacity 2s ease;
+  transition:opacity 1.5s ease;
 }
 
+/* FLOATING TEXT CONTAINER FIX */
+#slide7{
+  overflow:hidden;
+}
 
+/* MAKE SURE NO BUTTON STAYS ABOVE */
+#noBtn{
+  position:relative;
+  z-index:10;
+}
