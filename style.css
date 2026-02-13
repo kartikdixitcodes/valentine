@@ -162,11 +162,13 @@ body{
   top:-10px;
 }
 
-/* ===================== */
-/* SLIDE 6 FIXED */
-/* ===================== */
+/* Slide 6 FIX */
 
-.proposal-wrapper{
+#slide6{
+  overflow:visible;
+}
+
+.proposal-container{
   width:100%;
   max-width:1100px;
   margin:auto;
@@ -182,14 +184,13 @@ body{
   gap:40px;
   width:100%;
   max-width:1000px;
-  overflow:hidden;
 }
 
 .proposal-gallery img{
   height:340px;
   border-radius:20px;
   opacity:0;
-  transform:translateY(40px);
+  transform:translateY(50px);
   transition:all 1.5s ease;
 }
 
@@ -198,16 +199,24 @@ body{
   transform:translateY(0);
 }
 
-.proposal-title{
+#proposalText{
   margin-top:40px;
-  text-align:center;
 }
 
-.proposal-buttons{
+#proposalButtons{
   margin-top:30px;
   display:flex;
   gap:30px;
   justify-content:center;
+}
+
+#yesBtn{
+  z-index:5;
+}
+
+#noBtn{
+  z-index:6;
+  position:relative;
 }
 
 /* ===================== */
@@ -285,3 +294,4 @@ body{
   opacity:0;
   transition:opacity 2s ease;
 }
+
